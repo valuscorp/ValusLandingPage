@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" typpe="text/css" media="screen" href="normalize-min.css">
   <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="jquery-3.3.1.min.js"></script>
 </head>
 <body>
 
@@ -23,7 +24,7 @@
         <footer>
           <h5 id="copyright">&copy; Valus</h5>
           <h6 id="creator"> 
-            Created by <a href="http://github.com/ShabazBadshah">Shabaz Badshah</a>
+            Site created by <a href="http://github.com/ShabazBadshah">Shabaz Badshah</a>
           </h6>
         </footer>
       </div>
@@ -32,17 +33,74 @@
     
     <div id="right-half-container">
       <div class="content-container">
-        <h2 id="sign-up-text">Sign up for our updates!</h2>
-        <h3 id="sign-up-sub-text">Don't worry, we don't spam</h3>
+        <div id="prompt-container">
+          <h2 id="sign-up-text">Sign up for our updates!</h2>
+          <h3 id="sign-up-sub-text">Don't worry, we don't spam</h3>
+        </div>
         <div id="form-container">
             <input type="text" id="email-input-field" placeholder="Enter your email">
             <br>
             <button type="button" id="submit-email-button">Sign Up</button>
         </div>
       </div>
+      
+      <div id="snackbar-text-container">
+        <h4 id="snackbar-text"></h4>
+      </div>
+
     </div>
   </div>
   
+  <script>
+    const snackbar = $('#snackbar-text-container');
+    const snackbarText = $('#snackbar-text')[0];
+    const emailField = $('#email-input-field');
+    const STATE_SUCCESS = 'SUCCESS';
+    const STATE_ERROR = 'ERROR';
+
+    $(document).ready(function(){
+      
+      emailField.keypress((e) => { // Enter key was pressed
+        if (e.which === 13) verifyEmail(emailField.val().toLowerCase().trim());
+      });
+
+      $('#submit-email-button').on('click', () => {
+        const emailFieldText = emailField.val().toLowerCase().trim();
+        verifyEmail(emailFieldText);
+      });
+    });
+    
+    function showSnackbar(message, messageType) {
+      snackbarText.innerHTML = message;
+      snackbar.slideDown(250);
+
+      switch(messageType) {
+        case 'SUCCESS':
+          setTimeout(() => snackbar.slideUp(250), 3000);
+          break;
+        case 'ERROR':
+          setTimeout(() => snackbar.slideUp(250), 2000);
+          break;
+        default:
+          break;
+      }
+    } 
+
+    function verifyEmail(email) {
+      // General Email Regex (RFC 5322 Official Standard)
+      const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+      if (emailRegex.test(email)) {
+        showSnackbar('Awesome, we\'ve signed you up!', STATE_SUCCESS);
+        snackbar.css('background-color', '#06b47a');
+      } else { 
+        showSnackbar('Please enter a valid email', STATE_ERROR); 
+        snackbar.css('background-color', '#ec1b1b');
+      }
+      emailField.val('');
+    }
+  </script>
+
   <!-- Sets the copyright for the current year -->
   <script>
     let currentYear = new Date().getFullYear();
