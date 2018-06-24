@@ -10,6 +10,11 @@ Sunday June 24, 2018
 }
 
 @font-face {
+  font-family: LiberationSansRegular;
+  src: url(LiberationSans-Regular.ttf);
+}
+
+@font-face {
   font-family: LiberationSansItalic;
   src: url(LiberationSans-Italic.ttf);
 }
@@ -26,6 +31,10 @@ body, html {
   width: 100%;
 }
 
+.content-container {
+  margin: 50px;
+}
+
 #left-half-container {
   position: relative;
   width: 40%;
@@ -37,11 +46,62 @@ body, html {
 
 #right-half-container {
   width: 60%;
-  background-color: #363636;
+  background-color: #9417e8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.content-container {
-  margin: 50px;
+#form-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input#email-input-field {
+  position: relative;
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  margin-top: 40px;
+  height: 35px;
+  width: 500px;
+  border:1px solid #ebebeb;
+  outline:none;
+  border-radius: 3px;
+  border-right: none;
+}
+
+button#submit-email-button {
+  font-family: LiberationSansHeading;
+  text-transform: uppercase;
+  color: #9417e8;
+  font-size: 1.1em;
+  padding: 12px;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  background: #ebebeb;
+}
+
+h2#sign-up-text {
+  font-family: LiberationSansRegular;
+  text-align: center;
+  font-size: 2em;
+  letter-spacing: 3px;
+  line-height: 20px;
+  color: white;
+}
+
+h3#sign-up-sub-text {
+  font-family: LiberationSansItalic;
+  text-align: center;
+  font-size: 1.2em;
+  letter-spacing: 1.2px;
+  margin-top: 30px;
+  color: white;
 }
 
 #left-half-container .content-container {
@@ -54,15 +114,24 @@ h1#title {
   text-transform: uppercase;
   font-size: 6em;
   margin: 0;
+  letter-spacing: 8px;
   color: #9417e8;
 }
 
 h2#app-description {
   font-family: LiberationSansItalic;
   font-weight: 100;
-  margin-left: 5px;
-  width: 75%;
+  margin-left: 10px;
+  letter-spacing: 1px;
+  line-height: 35px;
+  width: 80%;
   color: #363636;
+}
+
+#right-half-container .content-container {
+  margin: 50px;  
+  padding-left: 20px;
+  /* background-color: lightblue; */
 }
 
 #footer-container {
