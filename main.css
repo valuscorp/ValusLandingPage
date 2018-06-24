@@ -27,6 +27,7 @@ body, html {
 }
 
 #left-half-container {
+  position: relative;
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -51,7 +52,7 @@ body, html {
 h1#title {
   font-family: LiberationSansHeading;
   text-transform: uppercase;
-  font-size: 5.5em;
+  font-size: 6em;
   margin: 0;
   color: #9417e8;
 }
@@ -62,4 +63,31 @@ h2#app-description {
   margin-left: 5px;
   width: 75%;
   color: #363636;
+}
+
+#footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  padding: 20px 0;
+  margin-left: 70px;
+  margin-bottom: 20px;
+}
+
+h5#copyright {
+  color: #363636;
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+h6#creator {
+  color: #363636;
+  margin: 0;
+}
+
+h6#creator a {
+  color: #9417e8;
 }

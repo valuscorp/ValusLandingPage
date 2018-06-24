@@ -15,17 +15,36 @@
       <div class="content-container">
         <h1 id="title">Valus</h1>
         <h2 id="app-description">
-          We connect legal professionals with clients who require legal services
+          "We connect legal professionals with clients who require legal services"
         </h2>
       </div>
+
+      <div id="footer-container">
+        <footer>
+          <h5 id="copyright">&copy; Valus</h5>
+          <h6 id="creator"> 
+            Created by <a href="http://github.com/ShabazBadshah">Shabaz Badshah</a>
+          </h6>
+        </footer>
+      </div>
+
     </div>
     
     <div id="right-half-container">
       <div class="content-container">
-
+        <h2 id="sign-up-text">Sign up for our updates! Don't worry, we don't spam</h2>
+        <input type="text" id="email-input-field" placeholder="Enter your email">
+        <button type="button">Sign Up</button>
       </div>
     </div>
   </div>
   
+  <!-- Sets the copyright for the current year -->
+  <script>
+    let currentYear = new Date().getFullYear();
+    let copyrightString = `\u00A9 ${currentYear} Valus`;
+    document.getElementById('copyright').innerHTML = copyrightString;
+  </script>
+
 </body>
 </html>
