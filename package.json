@@ -1,0 +1,36 @@
+{
+  "name": "valus-landing-page",
+  "version": "1.0.0",
+  "description": "the landing page for valus where visitors will be able to sign up for an email newsletter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShabazBadshah/ValusLandingPage.git"
+  },
+  "keywords": [
+    "valus",
+    "valus",
+    "landing",
+    "law",
+    "legal",
+    "find",
+    "a",
+    "lawyer",
+    "lawyer",
+    "legal",
+    "search",
+    "Valus",
+    "Valus",
+    "Valus",
+    "Inc."
+  ],
+  "author": "Shabaz Badshah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShabazBadshah/ValusLandingPage/issues"
+  },
+  "homepage": "https://github.com/ShabazBadshah/ValusLandingPage#readme"
+}
