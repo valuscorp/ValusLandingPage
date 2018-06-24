@@ -1,3 +1,65 @@
-body {
-  background-color: orange;
+/* 
+Valus Landing Page
+Shabaz Badshah 
+Sunday June 24, 2018
+*/
+
+@font-face {
+  font-family: LiberationSansHeading;
+  src: url(LiberationSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: LiberationSansItalic;
+  src: url(LiberationSans-Italic.ttf);
+}
+
+body, html {
+  background-color: #343d46;
+  height: 100%;
+  width: 100%;
+}
+
+#site-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+#left-half-container {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #ebebeb;
+}
+
+#right-half-container {
+  width: 60%;
+  background-color: #363636;
+}
+
+.content-container {
+  margin: 50px;
+}
+
+#left-half-container .content-container {
+  margin: 50px;  
+  padding-left: 20px;
+}
+
+h1#title {
+  font-family: LiberationSansHeading;
+  text-transform: uppercase;
+  font-size: 5.5em;
+  margin: 0;
+  color: #9417e8;
+}
+
+h2#app-description {
+  font-family: LiberationSansItalic;
+  font-weight: 100;
+  margin-left: 5px;
+  width: 75%;
+  color: #363636;
 }
