@@ -37,11 +37,15 @@
           <h2 id="sign-up-text">Sign up for our updates!</h2>
           <h3 id="sign-up-sub-text">Don't worry, we don't spam</h3>
         </div>
-        <div id="form-container">
-            <input type="text" id="email-input-field" placeholder="Enter your email">
-            <br>
-            <button type="button" id="submit-email-button">Sign Up</button>
-        </div>
+
+        <form id="gform" method="POST" action="https://script.google.com/macros/s/AKfycbyVKuM3GuPpSQAUm-O7tLmhesV2M4zhAm7TTbSoVDMia_rylGA/exec">
+          <input id="honeypot" type="text" name="honeypot" value="" style="display:none"/>
+          <div id="form-container">
+              <input type="text" name="email" id="email-input-field" placeholder="Enter your email">
+              <br>
+              <button type="submit" id="submit-email-button">Sign Up</button>
+          </div>
+        </form>
       </div>
       
       <div id="snackbar-text-container">
@@ -85,19 +89,21 @@
           break;
       }
     } 
-
+    
+    // Sending emails withouot a server https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server
     function verifyEmail(email) {
       // General Email Regex (RFC 5322 Official Standard)
       const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
       if (emailRegex.test(email)) {
-        showSnackbar('Awesome, we\'ve signed you up!', STATE_SUCCESS);
+        $('#sign-up-sub-text').val('');
+        $('#sign-up-text').val('Awesome, we\'ve signed you up!');
+        showSnackbar('Email submitted! :D', STATE_SUCCESS);
         snackbar.css('background-color', '#06b47a');
       } else { 
         showSnackbar('Please enter a valid email', STATE_ERROR); 
         snackbar.css('background-color', '#ec1b1b');
       }
-      emailField.val('');
     }
   </script>
 
@@ -108,5 +114,6 @@
     document.getElementById('copyright').innerHTML = copyrightString;
   </script>
 
+  <script data-cfasync="false" type="text/javascript" src="form-submission-handler.js"></script>
 </body>
 </html>
