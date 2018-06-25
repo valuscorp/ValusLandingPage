@@ -234,8 +234,15 @@ h6#creator a {
     padding-bottom: 50px;
   }
 
+  #left-half-container .content-container {
+    padding-bottom: 0;
+  }
+
   #footer-container {
+    position: relative;
     margin: 0;
+    margin-bottom: 30px;
+    padding-top: 0;
     width: 100%;
   }
 
