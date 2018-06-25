@@ -43,7 +43,7 @@
           <div id="form-container">
               <input type="text" name="email" id="email-input-field" placeholder="Enter your email">
               <br>
-              <button type="submit" id="submit-email-button">Sign Up</button>
+              <button type="submit" onclick="return shouldSubmitForm();" id="submit-email-button">Sign Up</button>
           </div>
         </form>
       </div>
@@ -61,6 +61,7 @@
     const emailField = $('#email-input-field');
     const STATE_SUCCESS = 'SUCCESS';
     const STATE_ERROR = 'ERROR';
+    let submitForm = false;
 
     $(document).ready(function(){
       
@@ -89,20 +90,29 @@
           break;
       }
     } 
+
+    function shouldSubmitForm() {
+      console.log(submitForm);
+      return submitForm;
+    }
     
     // Sending emails withouot a server https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server
     function verifyEmail(email) {
       // General Email Regex (RFC 5322 Official Standard)
       const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
+      submitForm = false;
+
       if (emailRegex.test(email)) {
         $('#sign-up-sub-text').val('');
         $('#sign-up-text').val('Awesome, we\'ve signed you up!');
         showSnackbar('Email submitted! :D', STATE_SUCCESS);
         snackbar.css('background-color', '#06b47a');
+        submitForm = true;
       } else { 
         showSnackbar('Please enter a valid email', STATE_ERROR); 
         snackbar.css('background-color', '#ec1b1b');
+        submitForm = false;
       }
     }
   </script>
