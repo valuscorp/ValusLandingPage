@@ -63,6 +63,13 @@ body, html {
   align-items: center;
 }
 
+img#logo {
+  width: 200px;
+  margin-bottom: 50px;
+  position: absolute;
+  top: 40px;
+}
+
 input#email-input-field {
   font-family: LiberationSansItalic;
   text-align: center;
@@ -108,9 +115,9 @@ button#submit-email-button:hover {
 h4#snackbar-text {
   font-family: LiberationSansRegular;
   text-align: center;
-  font-size: 1.1em;
+  font-size: 1em;
   letter-spacing: 1px;
-  margin: 25px;
+  margin: 20px;
   color: white;
 }
 
@@ -188,6 +195,13 @@ h6#creator a {
     flex-direction: column;
   }
 
+  img#logo {
+    width: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
+  }
+
   #right-half-container, #left-half-container {
     width: 100%;
     height: 100%;
@@ -206,7 +220,7 @@ h6#creator a {
   h1#title {
     font-size: 4em;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 50px;
   }
 
   h2#app-description {
